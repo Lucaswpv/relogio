@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="relogio.css">
+</head>
+<body onload="relogio"> 
+    <h1 id="time"></h1>
+    <h2 id="diadasemana">...</h2>
+    <label id="relogio">...</label>
+    <script>
+        var relogio = document.getElementById('relogio')
+        var time = window.document.getElementById('time')
+        var diadasemana = window.document.getElementById('diadasemana')
+        var data = new Date() //1
+        var diasem = data.getDay()//1
+
+        var minutos = new Date()//2
+        var minutosd = minutos.getMinutes()//2
+
+        var segundos = new Date()//3
+        var segundosd = segundos.getSeconds()//3
+
+        var hora = new Date()//4
+        var horad = hora.getHours()//
+        relogio.innerHTML = `${horad} : ${minutosd} : ${segundosd}`
+        window.setInterval('relogio()',1000)
+
+        if(horad < 12) {
+            time.innerHTML = 'bom dia!'
+            document.body.style.background = '#e2cd9f'
+        } else if(horad <= 18) {
+            time.innerHTML = 'boa tarde!'
+            document.body.style.background = '#b9846f'
+        } else {
+            time.innerHTML = 'boa noite!'
+            document.body.style.background = '#1A1921'
+        }
+
+        switch(diasem) {
+    case 0: 
+        diadasemana.innerHTML = 'hoje é domingo' 
+        break
+    case 1:
+        diadasemana.innerHTML = 'hoje é segunda' 
+        break
+    case 2: 
+        diadasemana.innerHTML = 'hoje é terça' 
+        break
+    case 3: 
+        diadasemana.innerHTML = 'hoje é quarta' 
+        break
+    case 4:
+        diadasemana.innerHTML = "hoje  é quinta"
+        break
+    case 5:
+        diadasemana.innerHTML = 'hoje é sexta' 
+        break
+    case 6:
+        diadasemana.innerHTML = "hoje é sabado" 
+        break
+
+}
+
+    </script>
+    <style>
+        body {
+    color: white;
+    text-align: center;
+}
+h1#time {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #05121A;
+    border: 2px solid ;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin: auto;
+    width: 400px;
+}
+
+h2#diadasemana {
+    background-color: #022904;
+    border: 4px solid #05121A;
+}
+label#relogio {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28pt;
+    border: 2px solid white;
+    padding: 10px 50px;
+    border-radius: 20px;
+    background-color: black;
+}
+#relogio:hover {
+    transition: 1s;
+    background-color: #97B7DA;
+    color: red;
+}
+    </style>
+</body>
+</html>
